@@ -1,5 +1,3 @@
-const { DatabaseError } = require("pg");
-const { use } = require("react");
 
 module.exports = {
     dialect: 'postgres',
