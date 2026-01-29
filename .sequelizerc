@@ -1,7 +1,7 @@
 const {resolve} = require('node:path');
 
 
-module.esport = {
+module.exports = {
     config: resolve(__dirname, 'src', 'Config', 'database.js'),
     'migrations-path': resolve(__dirname, 'src', 'database', 'migrations'),
     'models-path': resolve(__dirname, 'src', 'src', 'app',  'models'),
