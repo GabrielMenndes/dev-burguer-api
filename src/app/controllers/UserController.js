@@ -1,9 +1,24 @@
+import bcrypt from 'bcrypt';
 import { v4 } from 'uuid';
+import * as Yup from 'yup';
 import User from '../models/User.js';
 
 class UserController {
   async store(req, res) {
-    const { name, email, password_hash, admin } = req.body;
+    const schema = Yup.object().shape({
+      name: Yup.string().required(),
+      email: Yup.string().email().required(),
+      password: Yup.string().min(6).required(),
+      admin: Yup.boolean(),
+    });
+
+    try {
+      schema.validateSync(req.body, { abortEarly: false, strict: true });
+    } catch (err) {
+      return res.status(400).json({ errors: err.errors });
+    }
+
+    const { name, email, password, admin } = req.body;
 
     const existingUser = await User.findOne({
       where: {
@@ -12,8 +27,10 @@ class UserController {
     });
 
     if (existingUser) {
-      return res.status(400).json({ message: 'User already exists' });
+      return res.status(400).json({ message: 'Email already exists' });
     }
+
+    const password_hash = await bcrypt.hash(password, 10);
 
     const user = await User.create({
       id: v4(),
