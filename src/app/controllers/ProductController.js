@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import Product from '../models/Product.js';
+import Product from '../models/product.js';
 
 class ProductController {
   async store(req, res) {
@@ -30,6 +30,7 @@ class ProductController {
 
   async index(_req, res) {
     const products = await Product.findAll();
+
     return res.status(200).json(products);
   }
 }
