@@ -17,6 +17,7 @@ class User extends Model {
         tableName: 'users',
       },
     );
+    return this;
   }
 }
 export default User;
