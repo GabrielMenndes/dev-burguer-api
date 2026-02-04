@@ -5,9 +5,9 @@ import OrderController from './app/controllers/OrderController.js';
 import ProductController from './app/controllers/ProductController.js';
 import SessionController from './app/controllers/SessionsController.js';
 import UserController from './app/controllers/UserController.js';
-import multerConfig from './Config/multer.cjs';
 import adminMiddleware from './app/middlewares/admin.js';
 import authMiddleware from './app/middlewares/auth.js';
+import multerConfig from './Config/multer.cjs';
 
 const routes = new Router();
 
