@@ -20,6 +20,11 @@ class ProductController {
     const { name, price, category_id, offer } = req.body;
     const { filename } = req.file;
 
+    const category = await Category.findByPk(category_id);
+    if (!category) {
+      return res.status(400).json({ error: 'Category not found' });
+    }
+
     const newProduct = await Product.create({
       name,
       price,
@@ -47,6 +52,13 @@ class ProductController {
 
     const { name, price, category_id, offer } = req.body;
     const { id } = req.params;
+
+    if (category_id) {
+      const category = await Category.findByPk(category_id);
+      if (!category) {
+        return res.status(400).json({ error: 'Category not found' });
+      }
+    }
 
     let path;
     if (req.file) {
