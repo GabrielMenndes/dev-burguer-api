@@ -23,7 +23,7 @@ class CategoryController {
     });
 
     if (existingCategory) {
-      return res.status(400).json({ error: 'Category already exists.' });
+      return res.status(400).json({ error: 'Categoria já existe.' });
     }
 
     const newCategory = await Category.create({
@@ -61,7 +61,7 @@ class CategoryController {
     });
 
     if (existingCategory) {
-      return res.status(400).json({ error: 'Category already exists.' });
+      return res.status(400).json({ error: 'Categoria já existe.' });
     }
 
     await Category.update({

@@ -85,7 +85,7 @@ class OrderController {
       return res.status(400).json({ error: error.message });
     }
 
-    return res.status(200).json({ menssage: 'Satus Updated Successfully' });
+    return res.status(200).json({ message: 'Status atualizado com sucesso.' });
   }
 
   async index(_req, res) {

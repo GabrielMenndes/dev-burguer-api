@@ -5,7 +5,7 @@ const authMiddleware = (req, res, next) => {
   const authToken = req.headers.authorization;
 
   if (!authToken) {
-    return res.status(401).json({ error: 'Token not provided' });
+    return res.status(401).json({ error: 'Token não fornecido.' });
   }
 
   const token = authToken.split(' ')[1];
@@ -21,7 +21,7 @@ const authMiddleware = (req, res, next) => {
       req.userIsAdmin = decoded.admin;
     });
   } catch (_error) {
-    return res.status(401).json({ error: 'Token invalid' });
+    return res.status(401).json({ error: 'Token inválido.' });
   }
   return next();
 };

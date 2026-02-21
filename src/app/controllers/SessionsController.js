@@ -17,7 +17,7 @@ class SessionController {
     });
 
     const emailOrPasswordIncorrect = () => {
-      return res.status(400).json({ error: 'Email or Password Incorrect' });
+      return res.status(400).json({ error: 'E-mail ou senha incorretos.' });
     };
 
     if (!isValid) {

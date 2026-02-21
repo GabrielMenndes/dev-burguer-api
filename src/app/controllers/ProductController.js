@@ -22,7 +22,7 @@ class ProductController {
 
     const category = await Category.findByPk(category_id);
     if (!category) {
-      return res.status(400).json({ error: 'Category not found' });
+      return res.status(400).json({ error: 'Categoria não encontrada.' });
     }
 
     const newProduct = await Product.create({
@@ -56,32 +56,26 @@ class ProductController {
     if (category_id) {
       const category = await Category.findByPk(category_id);
       if (!category) {
-        return res.status(400).json({ error: 'Category not found' });
+        return res.status(400).json({ error: 'Categoria não encontrada.' });
       }
     }
 
-    let path;
+    const updateData = {
+      name,
+      price,
+      category_id,
+      offer,
+    };
     if (req.file) {
       const { filename } = req.file;
-      path = filename;
+      updateData.path = filename;
     }
 
-    await Product.update(
-      {
-        name,
-        price,
-        category_id,
-        path,
-        offer,
-      },
-      {
-        where: {
-          id,
-        },
-      },
-    );
+    await Product.update(updateData, {
+      where: { id },
+    });
 
-    return res.status(201);
+    return res.status(200).json({ message: 'Produto atualizado com sucesso.' });
   }
 
   async index(_req, res) {

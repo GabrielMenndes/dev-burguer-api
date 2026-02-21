@@ -27,7 +27,7 @@ class UserController {
     });
 
     if (existingUser) {
-      return res.status(400).json({ message: 'Email already exists' });
+      return res.status(400).json({ message: 'E-mail já cadastrado.' });
     }
 
     const password_hash = await bcrypt.hash(password, 10);

@@ -1,14 +1,14 @@
 {
   "name": "dev-burguer-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "API para gerenciamento de pedidos, produtos, categorias e pagamentos de uma hamburgueria.",
   "main": "src/server.js",
   "scripts": {
     "dev": "node --watch src/server.js"
   },
   "type": "module",
   "keywords": [],
-  "author": "",
+  "author": "Mende Gabriel",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^6.0.0",
