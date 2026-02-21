@@ -8,7 +8,7 @@
   },
   "type": "module",
   "keywords": [],
-  "author": "Mende Gabriel",
+  "author": "Mendes Gabriel",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^6.0.0",
